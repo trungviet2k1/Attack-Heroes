@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, targetAngle, 0);
 
-            transform.Translate(moveSpeed * Time.deltaTime * direction, Space.World);
+            Vector3 move = moveSpeed * Time.deltaTime * direction;
+            transform.position += move;
         }
     }
 }
